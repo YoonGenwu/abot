@@ -31,8 +31,8 @@ namespace Abot.Poco
         public int MaxConcurrentThreads { get; set; }
 
         /// <summary>
-        /// Maximum number of pages to crawl.
-        /// This value is required.
+        /// Maximum number of pages to crawl. 
+        /// If zero, this setting has no effect
         /// </summary>
         public int MaxPagesToCrawl { get; set; }
 
@@ -159,6 +159,12 @@ namespace Abot.Poco
         /// Maximum levels below root page to crawl. If value is 0, the homepage will be crawled but none of its links will be crawled. If the level is 1, the homepage and its links will be crawled but none of the links links will be crawled.
         /// </summary>
         public int MaxCrawlDepth { get; set; }
+
+        /// <summary>
+        /// Maximum links to crawl per page.
+        /// If value is zero, this setting has no effect.
+        /// </summary>
+        public int MaxLinksPerPage { get; set; }
 
         /// <summary>
         /// Gets or sets a value that indicates whether the crawler should parse the page's links even if a CrawlDecision (like CrawlDecisionMaker.ShouldCrawlPageLinks()) determines that those links will not be crawled.

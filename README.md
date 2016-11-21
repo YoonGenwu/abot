@@ -23,15 +23,17 @@ Abot is an open source C# web crawler built for speed and flexibility. It takes 
   * [Need expert Abot customization?](https://github.com/sjdirect/abot/wiki/Custom-Development)
   * [Take the usage survey](https://www.surveymonkey.com/s/JS5826F) to help prioritize features/improvements
   * [Consider making a donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G6ZY6BZNBFVQJ)
+  * [Unofficial Chinese Documentation](https://github.com/zixiliuyue/abot)
 
 ######Use [AbotX](http://abotx.org) for powerful extensions/wrappers
 
   * [Crawl multiple sites concurrently](http://abotx.org/Learn/ParallelCrawlerEngine)
   * [Execute/Render Javascript](http://abotx.org/Learn/JavascriptRendering)
-  * [Avoid getting blocked by sites](http://abotx.org/Learn/CrawlerX#crawlerx-pause-resume)
+  * [Avoid getting blocked by sites](http://abotx.org/Learn/AutoThrottling)
+  * [Auto Tuning](http://abotx.org/Learn/AutoTuning)
+  * [Auto Throttling](http://abotx.org/Learn/AutoThrottling)
   * [Pause/Resume live crawls](http://abotx.org/Learn/CrawlerX#crawlerx-pause-resume)
-  * [Schedule day/time crawl limits](http://abotx.org/Learn/Scheduler)
-  * [Automatically speed up/down based on current resource usage](http://abotx.org/Learn/ThroughputMaximizer)
+  * [Simplified pluggability/extensibility](https://abotx.org/Learn/CrawlerX#easy-override)
 
 <br /><br />
 <hr />
@@ -86,6 +88,7 @@ using Abot.Poco;
       maxMemoryUsageInMb="0"
       maxMemoryUsageCacheTimeInSeconds="0"
       maxCrawlDepth="1000"
+	  maxLinksPerPage="1000"
       isForcedLinkParsingEnabled="false"
       maxRetryCount="0"
       minRetryDelayInMilliseconds="0"
@@ -162,6 +165,9 @@ void crawler_ProcessPageCrawlCompleted(object sender, PageCrawlCompletedArgs e)
 
 	if (string.IsNullOrEmpty(crawledPage.Content.Text))
 		Console.WriteLine("Page had no content {0}", crawledPage.Uri.AbsoluteUri);
+	
+	var htmlAgilityPackDocument = crawledPage.HtmlDocument; //Html Agility Pack parser
+	var angleSharpHtmlDocument = crawledPage.AngleSharpHtmlDocument; //AngleSharp parser
 }
 
 void crawler_PageLinksCrawlDisallowed(object sender, PageLinksCrawlDisallowedArgs e)
@@ -268,7 +274,7 @@ The following configuration data should be added to the app.config file of the a
 
 Abot was designed to be as pluggable as possible. This allows you to easily alter the way it works to suite your needs.
 
-The easiest way to change Abot's behavior for common features is to change the config values that control them. See the [Quick Start](#quickstart) page for examples on the different ways Abot can be configured.
+The easiest way to change Abot's behavior for common features is to change the config values that control them. See the [Quick Start](#quick-start) page for examples on the different ways Abot can be configured.
 
 ####CrawlDecision Callbacks/Delegates
 Sometimes you don't want to create a class and go through the ceremony of extending a base class or implementing the interface directly. For all you lazy developers out there Abot provides a shorthand method to easily add your custom crawl decision logic. NOTE: The ICrawlDecisionMaker's corresponding method is called first and if it does not "allow" a decision, these callbacks will not be called.
@@ -464,7 +470,7 @@ public interface IPageRequester
 ######IHyperLinkParser
 The IHyperLinkParser interface deals with parsing the links out of raw html.
 
-[HapHyperlinkParser.cs](https://github.com/sjdirect/abot/blob/master/Abot/Core/HapHyperLinkParser.cs) is the default IHyperLinkParser used by the crawler. It uses the well known parsing library [Html Agility Pack](http://htmlagilitypack.codeplex.com/). There is also an alternative implementation [CsQueryHyperLinkParser.cs](https://github.com/sjdirect/abot/blob/master/Abot/Core/CsQueryHyperLinkParser.cs) which uses [CsQuery](https://github.com/jamietre/CsQuery) to do the parsing. CsQuery uses a css style selector like jquery but all in c#. 
+[HapHyperlinkParser.cs](https://github.com/sjdirect/abot/blob/master/Abot/Core/HapHyperLinkParser.cs) is the default IHyperLinkParser used by the crawler. It uses the well known parsing library [Html Agility Pack](http://htmlagilitypack.codeplex.com/). There is also an alternative implementation [AngleSharpHyperLinkParser.cs](https://github.com/sjdirect/abot/blob/master/Abot/Core/AngleSharpHyperLinkParser.cs) which uses [AngleSharp](https://github.com/AngleSharp/AngleSharp) to do the parsing. AngleSharp uses a css style selector like jquery but all in c#. 
 
 ```c#
 /// <summary>
