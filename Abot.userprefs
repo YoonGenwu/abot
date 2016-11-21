@@ -1,9 +1,7 @@
-﻿<Properties StartupItem="Abot.Demo/Abot.Demo.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Abot_Crawler/PassWordCrawler.cs">
+﻿<Properties StartupConfiguration="{79F27061-3258-4D87-9339-2684CC9D3D42}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Abot.Demo/Program.cs">
     <Files>
       <File FileName="Abot.Demo/Program.cs" Line="126" Column="1" />
-      <File FileName="Abot_Crawler/MainActivity.cs" Line="22" Column="58" />
-      <File FileName="Abot_Crawler/PassWordCrawler.cs" Line="47" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -11,6 +9,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Abot__Crawler AndroidDesignerPreferredDevice="Nexus 4" />
   <MonoDevelop.Ide.ItemProperties.Abot.Demo PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
