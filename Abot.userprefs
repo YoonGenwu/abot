@@ -1,8 +1,10 @@
 ﻿<Properties StartupConfiguration="{79F27061-3258-4D87-9339-2684CC9D3D42}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Abot_GTK2Test/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Abot_PWDCrawler/Program.cs">
     <Files>
       <File FileName="Abot.Demo/Program.cs" Line="111" Column="3" />
       <File FileName="Abot_GTK2Test/Program.cs" Line="1" Column="1" />
+      <File FileName="Abot_GTK2Test/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="Abot_PWDCrawler/Program.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

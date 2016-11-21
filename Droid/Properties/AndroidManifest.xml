@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.crawlertest">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.yoongenwu.abot_xformstest">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="CrawlerTest">
+	<application android:label="Abot_XFormsTest">
 	</application>
 </manifest>
